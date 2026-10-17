@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /requests/{id} {
+      // Anyone can SEND a request (with limits). Nobody can read it except the admin.
+      allow create: if request.resource.data.keys().hasOnly([
+          'ref','svc','mode','from','to','syrcity','border','cargo','goods','hscode',
+          'weight','date','name','company','phone','email','notes','files','lang',
+          'summary','status','createdAt'])
+        && request.resource.data.keys().hasAll(['ref','name','phone','email','from','to','summary','status','createdAt'])
+        && request.resource.data.status == 'new'
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.name is string && request.resource.data.name.size() <= 200
+        && request.resource.data.email is string && request.resource.data.email.size() <= 200
+        && request.resource.data.phone is string && request.resource.data.phone.size() <= 60
+        && request.resource.data.summary is string && request.resource.data.summary.size() <= 4000;
+      // Only the admin account can read, change or delete.
+      allow read, update, delete: if request.auth != null
+        && request.auth.token.email == 'mahmoudwattar011@gmail.com';
+    }
+  }
+}

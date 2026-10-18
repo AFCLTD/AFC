@@ -73,7 +73,7 @@ nav a.nl:hover{color:var(--fg);background:var(--surface)}
 .btn:hover{transform:translateY(-2px)}
 .btn.ghost{background:transparent;color:var(--fg);border:1.5px solid var(--line)}
 .menu{display:none;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;width:42px;height:42px;cursor:pointer;flex:none}
-@media (max-width:1500px){
+@media (max-width:1640px){
   .menu{display:grid;place-items:center;margin-inline-start:auto}
   nav{position:absolute;inset-inline:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:8px 16px 16px;display:none;margin:0}
   nav.open{display:flex}
@@ -261,7 +261,7 @@ html[lang="ar"] .n-en,html:not([lang="ar"]) .n-ar{display:none}
 .brandcard .nm{font-size:1.7rem;white-space:normal}
 .brandcard small{font-size:.9rem;white-space:normal}
 html[lang="ar"] .brandcard small{font-size:1rem}
-@media (max-width:1500px){.logo .nm{font-size:1.15rem}.lmark{width:52px}.brandcard .lmark{width:150px}}
+@media (max-width:1640px){.logo .nm{font-size:1.15rem}.lmark{width:52px}.brandcard .lmark{width:150px}}
 @media (max-width:520px){.logo{gap:10px}.lmark{width:44px}.logo .nm{font-size:.9rem;white-space:normal;max-width:130px;line-height:1.15;text-wrap:balance}html[lang="ar"] .logo .lt{flex:none;width:80px}html[lang="ar"] .logo .nm{font-size:.82rem;max-width:80px}html:not([lang="ar"]) .logo .lt{flex:none;width:112px}.brandcard .nm{font-size:1.35rem}.brandcard .lmark{width:120px}}
 
 @media (max-width:520px){.bar{gap:8px!important}.lang button{padding:5px 8px;font-size:.78rem}.theme{width:36px;height:36px}.menu{width:38px;height:38px}.logo{flex:none;gap:8px}.lmark{width:38px}.logo .nm{font-size:.82rem}html:not([lang="ar"]) .logo .lt{width:104px}html:not([lang="ar"]) .logo .nm{font-size:.76rem}html[lang="ar"] .logo .lt{width:78px}html[lang="ar"] .logo .nm{font-size:.8rem;max-width:78px}.brandcard .lmark{width:120px}}
@@ -270,11 +270,11 @@ html[lang="ar"] .brandcard small{font-size:1rem}
 .logo{flex:none;max-width:100%}
 .logo .nm{font-size:1.3rem;letter-spacing:.01em}
 .logo .lmark{width:56px}
-@media (max-width:1500px){.logo .nm{font-size:1.15rem}.logo .lmark{width:50px}}
+@media (max-width:1640px){.logo .nm{font-size:1.15rem}.logo .lmark{width:50px}}
 html:not([lang="ar"]) .logo .lt{width:auto}
 @media (max-width:520px){html:not([lang="ar"]) .logo .lt{width:104px}.logo .lmark{width:38px}.logo .nm{font-size:.76rem}}
 
-@media (max-width:1500px){.bar>.lang{order:1;margin-inline-start:auto}.bar>.theme{order:2}.bar>.menu{order:3;margin-inline-start:0}}
+@media (max-width:1640px){.bar>.lang{order:1;margin-inline-start:auto}.bar>.theme{order:2}.bar>.menu{order:3;margin-inline-start:0}}
 
 .hero-logo{display:flex;align-items:center;gap:22px;width:fit-content;max-width:100%;margin-bottom:34px;padding:20px 28px 20px 22px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,var(--surface),transparent 140%);box-shadow:0 18px 40px -28px rgba(0,0,0,.45)}
 html[lang="ar"] .hero-logo{padding:20px 22px 20px 28px}
@@ -287,6 +287,73 @@ html[lang="ar"] .hero-logo .nm{font-size:2rem}
 @media (max-width:560px){.hero-logo{gap:14px;padding:14px 16px;margin-bottom:24px}.hero-logo .lmark{width:64px}.hero-logo-t{padding-inline-start:14px;gap:6px}.hero-logo .nm{font-size:1.2rem}.hero-logo small{font-size:.8rem}html[lang="ar"] .hero-logo .nm{font-size:1.3rem}html[lang="ar"] .hero-logo small{font-size:.88rem}}
 
 header .bar>.btn,header nav .btn{white-space:nowrap;padding:8px 16px!important;font-size:.88rem;line-height:1.2;border-radius:10px;flex:none;width:auto;height:auto;align-self:center}
+
+/* language dropdown */
+.langsel{position:relative;flex:none}
+.lang-btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--fg);font:700 .85rem var(--body);cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.lang-btn:hover{border-color:var(--brand)}
+.lang-btn[aria-expanded="true"]{border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 20%,transparent)}
+.lang-btn .chev{transition:transform .2s;opacity:.7}
+.lang-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.lang-menu{position:absolute;inset-inline-end:0;top:calc(100% + 10px);min-width:200px;margin:0;padding:6px;list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 60px -18px rgba(0,0,0,.45);z-index:60;animation:pop .16s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(-6px) scale(.98)}to{opacity:1;transform:none}}
+.lang-menu button{display:flex;align-items:center;gap:12px;width:100%;padding:10px 12px;border:0;border-radius:10px;background:none;color:var(--fg);font:600 .98rem var(--body);cursor:pointer;text-align:start}
+.lang-menu button:hover,.lang-menu button:focus-visible{background:color-mix(in srgb,var(--brand) 12%,transparent);outline:none}
+.lang-menu .lc{display:grid;place-items:center;width:32px;height:24px;border-radius:7px;background:var(--bg);border:1px solid var(--line);font-size:.7rem;font-weight:800;letter-spacing:.04em;color:var(--muted)}
+.lang-menu b{flex:1;font-weight:600}
+.lang-menu .ck{opacity:0;color:var(--ok)}
+.lang-menu [aria-selected="true"] .ck{opacity:1}
+.lang-menu [aria-selected="true"] .lc{background:var(--brand);color:#fff;border-color:var(--brand)}
+:root[data-theme="dark"] .lang-menu [aria-selected="true"] .lc{color:#06161a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lang-menu [aria-selected="true"] .lc{color:#06161a}}
+.lang-menu [lang="ar"] b{font-family:"Cairo",sans-serif}
+@media (max-width:520px){.lang-btn{height:36px;padding:0 10px;gap:6px}}
+
+/* select: modern look */
+select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-inline-end:42px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a9aa1' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+html[dir="rtl"] select{background-position:left 14px center}
+input,select,textarea{border-radius:12px;transition:border-color .15s,box-shadow .15s}
+input:hover,select:hover,textarea:hover{border-color:color-mix(in srgb,var(--brand) 45%,var(--line))}
+
+/* date picker */
+.dpwrap{position:relative}
+.dp{position:relative}
+.dp-field{display:flex;align-items:center;gap:10px;width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--fg);font:500 1rem var(--body);cursor:pointer;text-align:start;transition:border-color .15s,box-shadow .15s}
+.dp-field:hover{border-color:color-mix(in srgb,var(--brand) 45%,var(--line))}
+.dp-field:focus-visible,.dp-field[aria-expanded="true"]{border-color:var(--brand);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 25%,transparent)}
+.dp-field svg{flex:none;color:var(--muted)}
+.dp-field .ph{color:var(--muted)}
+.dp-pop{position:absolute;inset-inline-end:0;top:calc(100% + 8px);width:min(320px,calc(100vw - 32px));padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 28px 70px -20px rgba(0,0,0,.5);z-index:70;animation:pop .16s ease-out;direction:inherit}
+.dp-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.dp-head b{font-size:1rem;font-weight:700;text-transform:capitalize}
+.dp-nav{display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg);cursor:pointer;transition:border-color .15s,background .15s}
+.dp-nav:hover:not(:disabled){border-color:var(--brand)}
+.dp-nav:disabled{opacity:.35;cursor:not-allowed}
+html[dir="rtl"] .dp-nav svg{transform:scaleX(-1)}
+.dp-nav.next svg{transform:scaleX(-1)}
+html[dir="rtl"] .dp-nav.next svg{transform:none}
+.dp-dow,.dp-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.dp-dow span{font-size:.72rem;font-weight:700;color:var(--muted);padding:6px 0;text-transform:uppercase;letter-spacing:.04em}
+html[lang="ar"] .dp-dow span{letter-spacing:0;text-transform:none;font-size:.72rem;white-space:nowrap}
+.dp-d{aspect-ratio:1;border:0;border-radius:10px;background:none;color:var(--fg);font:600 .95rem var(--body);cursor:pointer;transition:background .12s}
+.dp-d:hover:not(:disabled){background:color-mix(in srgb,var(--brand) 14%,transparent)}
+.dp-d:focus-visible{outline:2px solid var(--brand);outline-offset:1px}
+.dp-d:disabled{opacity:.28;cursor:not-allowed}
+.dp-d.now{box-shadow:inset 0 0 0 1.5px var(--accent)}
+.dp-d.sel{background:var(--accent);color:#1a0a00;box-shadow:none}
+.dp-foot{display:flex;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.dp-foot button{border:0;background:none;color:var(--brand);font:700 .9rem var(--body);padding:8px 10px;border-radius:8px;cursor:pointer}
+.dp-foot button:hover{background:color-mix(in srgb,var(--brand) 12%,transparent)}
+.dp-back{display:none}
+@media (max-width:560px){
+  .dp-back:not([hidden]){display:block;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:65}
+  .dp-pop{position:fixed;inset-inline:16px;bottom:max(16px,env(safe-area-inset-bottom,0px));top:auto;width:auto;max-width:420px;margin-inline:auto;z-index:70}
+}
+.dpwrap>label{font-weight:700;font-size:.88rem}
+.row3{align-items:end}
+/* layout for the new language control */
+.bar>.langsel{order:2}
+@media (max-width:1640px){.bar>.langsel{order:1;margin-inline-start:auto}}
 html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}
 </style>
 
@@ -315,16 +382,20 @@ html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}
     <nav id="nav">
       <a class="nl" href="#services" data-i="nav_services">Trucks</a>
       <a class="nl" href="#borders" data-i="nav_borders">Crossings</a>
-      <a class="nl" href="#hs" data-i="nav_hs">HS codes</a>
+      <a class="nl" href="#hs" data-i="nav_hs">Customs items</a>
       <a class="nl" href="#process" data-i="nav_process">How it works</a>
       <a class="nl" href="#why" data-i="nav_why">Why us</a>
       <a class="nl" href="#reviews" data-i="nav_rev">Reviews</a>
       <a class="nl" href="#contact" data-i="nav_contact">Contact</a>
       <a class="btn hide-d" style="padding:10px 16px;margin-inline-start:8px" href="#quote" data-i="nav_quote">Get a quote</a>
     </nav>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" data-lang="ar" aria-pressed="false">عربي</button>
+    <div class="langsel" id="langsel">
+      <button type="button" class="lang-btn" id="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 3.9 5.7 3.9 9s-1.3 6.3-3.9 9c-2.6-2.7-3.9-5.7-3.9-9S9.4 5.7 12 3z"/></svg><span id="langcur">EN</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+      <ul class="lang-menu" id="langmenu" role="listbox" aria-label="Language" hidden>
+        <li><button type="button" role="option" data-lang="en" lang="en"><span class="lc">EN</span><b>English</b><svg class="ck" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></li>
+        <li><button type="button" role="option" data-lang="ar" lang="ar"><span class="lc">AR</span><b>العربية</b><svg class="ck" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></li>
+        <li><button type="button" role="option" data-lang="tr" lang="tr"><span class="lc">TR</span><b>Türkçe</b><svg class="ck" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></li>
+      </ul>
     </div>
     <button class="theme" id="theme" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
       <svg class="i-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
@@ -454,7 +525,7 @@ html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}
   <section id="hs" style="padding-top:0">
     <div class="wrap">
       <div class="head">
-        <p class="eyebrow" data-i="nav_hs">HS codes</p>
+        <p class="eyebrow" data-i="nav_hs">Customs items</p>
         <h2 data-i="hs_h">Find the HS code for your goods</h2>
         <p data-i="hs_p">Search by code or product name in English or Arabic, or browse by section and chapter. Pick a code and it goes straight into your quote request.</p>
       </div>
@@ -509,7 +580,17 @@ html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}
             <label class="f" for="cargo"><span data-i="cargo">Cargo type</span>
               <select id="cargo"><option value="general" data-i="c_gen">General goods</option><option value="food" data-i="c_food">Food and beverages</option><option value="mach" data-i="c_mach">Machinery</option><option value="chem" data-i="c_chem">Chemicals</option><option value="other" data-i="c_oth">Other</option></select></label>
             <label class="f" for="weight"><span><span data-i="weight">Approximate weight (kg)</span> <span class="opt" data-i="opt">optional</span></span><input id="weight" type="number" min="0" step="any" inputmode="decimal" placeholder="0"></label>
-            <label class="f" for="date"><span><span data-i="date">Ready date</span> <span class="opt" data-i="opt">optional</span></span><input id="date" type="date"></label>
+            <div class="f dpwrap"><label for="dpbtn"><span data-i="date">Ready date</span> <span class="opt" data-i="opt">optional</span></label>
+              <div class="dp" id="dp"><input id="date" type="hidden">
+                <button type="button" class="dp-field" id="dpbtn" aria-haspopup="dialog" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg><span id="dptxt" class="ph">Select a date</span></button>
+                <div class="dp-back" id="dpback" hidden></div>
+                <div class="dp-pop" id="dppop" role="dialog" aria-label="Date" hidden>
+                  <div class="dp-head"><button type="button" class="dp-nav" id="dpprev" data-i-label="dp_prev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><b id="dpm" aria-live="polite"></b><button type="button" class="dp-nav next" id="dpnext" data-i-label="dp_next"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button></div>
+                  <div class="dp-dow" id="dpdow"></div>
+                  <div class="dp-grid" id="dpgrid"></div>
+                  <div class="dp-foot"><button type="button" id="dpclear" data-i="dp_clear">Clear</button><button type="button" id="dptoday" data-i="dp_today">Today</button></div>
+                </div>
+              </div></div>
           </div>
         </fieldset>
         <fieldset>
@@ -607,6 +688,8 @@ send:"إرسال الطلب",ok_h:"طلبك جاهز",ok_p:"أرسل طلبك إ
 req:"هذا الحقل مطلوب",bademail:"أدخل بريداً إلكترونياً صحيحاً",ct_h:"تحدث مع فريقنا",addr:"المكتب",addr_v:"باب الهوى، سوريا",rights:"جميع الحقوق محفوظة.",
 sum_h:"طلب شاحنة - شركة عبد العزيز كروب",l_svc:"الشاحنة",l_route:"المسار",l_border:"المعبر",l_cargo:"البضاعة",l_w:"الوزن",l_d:"تاريخ الجاهزية",l_n:"الاسم",l_c:"الشركة",l_p:"الهاتف",l_e:"البريد",l_notes:"ملاحظات"}
 };
+Object.assign(T.en,{"nav_hs": "Customs items", "hs_h": "Find the customs item for your goods", "hs_p": "Search by item number or product name in English or Arabic, or browse by section and chapter. Pick an item and it goes straight into your quote request.", "hs_count": "Showing {n} of {m} items", "hs_none": "No matching item. Try a shorter word, a different spelling, or the first digits of the code.", "hs_use": "Use this item", "hs_added": "Customs item added to your request", "hs_note": "Customs tariff items follow the HS 2022 system (4-digit headings). Syrian customs adds further digits, duties and permits. Confirm the exact item with our team before you ship.", "hs_code": "Customs item", "hs_find": "Find customs item", "l_hs": "Customs item", "dp_ph": "Select a date", "dp_clear": "Clear", "dp_today": "Today", "dp_prev": "Previous month", "dp_next": "Next month", "lang_l": "Language"});Object.assign(T.ar,{"nav_hs": "البنود الجمركية", "hs_h": "ابحث عن البند الجمركي لبضاعتك", "hs_p": "ابحث برقم البند أو باسم المنتج بالعربية أو الإنجليزية، أو تصفّح حسب القسم والفصل. اختر البند فيُضاف مباشرة إلى طلبك.", "hs_none": "لا يوجد بند مطابق. جرّب كلمة أقصر أو إملاءً آخر أو أول أرقام البند.", "hs_use": "استخدم هذا البند", "hs_added": "أُضيف البند الجمركي إلى طلبك", "hs_note": "البنود الجمركية وفق النظام المنسق 2022 (4 أرقام). تضيف الجمارك السورية أرقاماً أخرى والرسوم والتراخيص. أكّد البند الدقيق مع فريقنا قبل الشحن.", "hs_code": "البند الجمركي", "hs_find": "ابحث عن البند الجمركي", "l_hs": "البند الجمركي", "dp_ph": "اختر التاريخ", "dp_clear": "مسح", "dp_today": "اليوم", "dp_prev": "الشهر السابق", "dp_next": "الشهر التالي", "lang_l": "اللغة"});T.tr={"l_ref": "Referans", "saved": "Talebiniz alındı. Referans:", "tag": "Gümrük müşavirliği ve uluslararası transit için", "nav_rev": "Yorumlar", "rv_h": "Müşterilerimiz ne diyor", "rv_p": "Bizimle kamyonla taşıma yapan ithalatçı ve ihracatçılar.", "rv_btn": "Deneyiminizi paylaşın", "rv_note": "Örnek yorumlar gösteriliyor. Bunları gerçek müşteri yorumlarıyla değiştirin.", "rv_s": "Örnek", "group": "Abdul Aziz Group Company", "b_bh": "Bab el-Hava", "c_dam": "Şam", "c_tur": "Türkiye", "simpl": "Basitleştirilmiş harita", "th_dark": "Koyu moda geç", "th_light": "Açık moda geç", "m_h": "Yük nereye gidiyor?", "m_in": "Son varış noktası Suriye", "m_tr": "Suriye'den geçiş (transit)", "syr_city": "Suriye'deki şehir", "ph_syr": "Şam, Halep, Lazkiye...", "syria_name": "Suriye", "l_mode": "Sevkiyat", "l_scity": "Suriye'deki şehir", "nav_hs": "Gümrük kalemleri", "hs_h": "Ürününüz için gümrük kalemini bulun", "hs_p": "Kalem numarası veya ürün adıyla İngilizce ya da Arapça arayın, ya da bölüm ve faslara göre göz atın. Bir kalem seçin, doğrudan teklif talebinize eklensin.", "hs_search": "Ara", "hs_ph": "8703, olive oil, زيت الزيتون", "hs_section": "Bölüm", "hs_chapter": "Fasıl", "hs_all_s": "Tüm bölümler", "hs_all_c": "Tüm fasıllar", "hs_count": "{m} kalemden {n} tanesi gösteriliyor", "hs_none": "Eşleşen kalem yok. Daha kısa bir kelime, farklı bir yazım ya da kodun ilk rakamlarını deneyin.", "hs_more": "Daha fazla göster", "hs_use": "Bu kalemi kullan", "hs_copy": "Kopyala", "hs_added": "Gümrük kalemi talebinize eklendi", "hs_note": "Gümrük tarife kalemleri HS 2022 sistemine (4 haneli pozisyonlar) göre verilir. Suriye gümrüğü ek haneler, vergiler ve izinler ekler. Göndermeden önce kesin kalemi ekibimizle doğrulayın.", "hs_code": "Gümrük kalemi", "hs_find": "Gümrük kalemi bul", "l_hs": "Gümrük kalemi", "fl_cert": "Sertifika gerekebilir", "fl_lic": "İzin veya özel onay gerekmesi muhtemel", "fl_haz": "Tehlikeli madde kuralları uygulanabilir", "chap_w": "Fasıl", "syria": "Suriye", "nav_services": "Kamyonlar", "nav_borders": "Sınır kapıları", "nav_process": "Nasıl çalışır", "nav_why": "Neden biz", "nav_contact": "İletişim", "nav_quote": "Teklif al", "hero_eye": "Suriye sınır kapılarından kamyonla taşımacılık", "hero_h": "Yükünüz yolda <em>ve sınırın ötesinde</em>.", "hero_p": "Abdul Aziz Group Company, Suriye'nin ana sınır kapılarından kamyon sevkiyatı yapar: Jdeidet Yabous, Nassib, Al-Tanf ve Al-Yarubiyah.", "cta1": "Kamyon talep et", "cta2": "Sınır kapılarını gör", "b1": "Komple ve parsiyel yükler", "b2": "Sınır evrakları bizden", "b3": "Arapça ve İngilizce destek", "qq_h": "Hızlı teklif", "to": "Varış ülkesi", "border": "Sınır kapısı", "truck": "Kamyon tipi", "undecided": "Henüz emin değilim", "qq_btn": "Tam talebe devam et", "ph_city": "Ülke", "ph_goods": "Ne taşıyorsunuz?", "b_jy": "Jdeidet Yabous", "b_ns": "Nassib", "b_tf": "Al-Tanf", "b_yr": "Al-Yarubiyah", "c_leb": "Lübnan", "c_jor": "Ürdün", "c_irq": "Irak", "t_ftl": "Komple kamyon yükü", "t_ltl": "Parsiyel yük", "t_ref": "Frigorifik kamyonlar", "t_flat": "Açık kasa (flatbed) kamyonlar", "t_heavy": "Ağır ve gabari dışı yükler", "t_cus": "Sınır evrakları", "sv_h": "Her yük için bir kamyon", "sv_p": "Ne taşıdığınızı söyleyin; kamyonu, güzergâhı ve sınır kapısını sizin için eşleştirelim.", "sv1": "Yükünüz için komple bir kamyon: bir kez yüklenir, doğrudan teslim edilir.", "sv2": "Kamyonu paylaşın, yalnızca malınızın kapladığı alan için ödeyin.", "sv3": "Gıda, ilaç ve diğer soğuk zincir ürünleri için sıcaklık kontrollü kamyonlar.", "sv4": "Makine, çelik, inşaat malzemesi ve paletler için açık kasalı kamyonlar.", "sv5": "Standart ölçüleri aşan yükler için planlı güzergâh ve özel koordinatör.", "sv6": "Ekibimiz evrakları hazırlar ve sınır kapısındaki işlemleri yürütür.", "bd_h": "Dört sınır kapısı, tek ekip", "bd_p": "Güzergâhınıza uygun sınır kapısını seçin. Kamyonu, evrakları ve gümrük işlemlerini biz ayarlarız.", "bd_use": "Buradan kamyon talep et", "bd_note": "Sınır kapılarının çalışma saatleri ve kuralları sınır makamlarınca belirlenir ve değişebilir. Göndermeden önce güncel durumu bizden öğrenin.", "pr_h": "Talepten teslimata dört adımda", "pr1": "Talebinizi gönderin", "pr1p": "Ne taşıdığınızı, nereden yükleneceğini ve hangi sınır kapısını istediğinizi bildirin.", "pr2": "Teklifinizi alın", "pr2p": "Fiyat, güzergâh ve tahmini transit süresiyle size dönüş yaparız.", "pr3": "Biz taşırız", "pr3p": "Kamyon atanır, evraklar hazırlanır ve yük sınırı geçer.", "pr4": "Teslim edildi", "pr4p": "Yükünüz varır ve teslimat evraklarını alırsınız.", "why_h": "Gümrük müşavirliği ve uluslararası transit", "why_p": "Abdul Aziz Group Company gümrük müşavirliği ve uluslararası transit hizmetleri sunar. Bir grubun gücünü, özel bir ekibin ilgisiyle birlikte alırsınız.", "w1": "Tek muhatap", "w1p": "Atanmış bir koordinatör, kamyonunuzu yüklemeden teslimata kadar takip eder.", "w2": "Net fiyatlandırma", "w2p": "Teklifler taşıma, sınır ve elleçleme maliyetlerini ayrı ayrı gösterir.", "w3": "Arapça ve İngilizce destek", "w3p": "Ekibimiz sizinle Arapça veya İngilizce çalışır.", "fq_h": "Sevkiyatınızı bize anlatın", "fq_p": "Ekibimiz talebinizi inceler ve 24 saat içinde rekabetçi bir fiyat gönderir.", "hl1": "Hızlı gümrük işlemleri", "hl2": "Gümrük müşavirliğinde uzun tecrübe", "hl3": "Teslimata kadar sevkiyat bilgilendirmesi", "urg_h": "Hemen yardım mı lazım?", "urg_p": "WhatsApp'tan doğrudan bir lojistik danışmanıyla konuşun.", "goods": "Mal tanımı", "files_h": "Dosya yükle", "drop_t": "Dosyaları buraya sürükleyin veya seçmek için tıklayın", "files_p": "Fatura, çeki listesi veya diğer belgeler. PDF, JPG veya PNG, dosya başına en fazla 10 MB.", "files_bad": "Yalnızca 10 MB'a kadar PDF, JPG veya PNG dosyaları kabul edilir.", "fnote": "Dosyalarınız otomatik olarak eklenmez. Lütfen WhatsApp sohbetinden gönderin.", "wa_send": "WhatsApp'tan gönder", "mail_send": "E-posta ile gönder", "mail_to": "E-posta", "wa_l": "WhatsApp", "wa_chat": "WhatsApp'ta yazın", "copy_email": "E-postayı kopyala", "l_goods": "Mal", "l_o": "Çıkış", "l_dst": "Varış", "l_f": "Dosyalar", "f1": "Hangi kamyona ihtiyacınız var?", "f2": "Güzergâh ve yük", "f3": "Bilgileriniz", "cargo": "Yük tipi", "c_gen": "Genel kargo", "c_food": "Gıda ve içecek", "c_mach": "Makine", "c_chem": "Kimyasallar", "c_oth": "Diğer", "weight": "Tahmini ağırlık (kg)", "date": "Hazır olma tarihi", "opt": "isteğe bağlı", "name": "Ad soyad", "company": "Şirket", "phone": "Telefon / WhatsApp", "email": "E-posta", "notes": "Ek notlar", "ph_notes": "Bilmemiz gereken başka bir şey", "send": "Talebi gönder", "ok_h": "Talebiniz hazır", "ok_p": "Talebinizi WhatsApp'tan ekibimize gönderin. Özeti kopyalayıp e-posta ile de iletebilirsiniz.", "copy": "Özeti kopyala", "copied": "Kopyalandı", "req": "Bu alan zorunludur", "bademail": "Geçerli bir e-posta girin", "ct_h": "Ekibimizle konuşun", "addr": "Ofis", "addr_v": "Bab el-Hava, Suriye", "rights": "Tüm hakları saklıdır.", "sum_h": "Abdul Aziz Group kamyon talebi", "l_svc": "Kamyon", "l_route": "Güzergâh", "l_border": "Sınır kapısı", "l_cargo": "Yük", "l_w": "Ağırlık", "l_d": "Hazır olma tarihi", "l_n": "Ad", "l_c": "Şirket", "l_p": "Telefon", "l_e": "E-posta", "l_notes": "Notlar", "dp_ph": "Tarih seçin", "dp_clear": "Temizle", "dp_today": "Bugün", "dp_prev": "Önceki ay", "dp_next": "Sonraki ay", "lang_l": "Dil", "from": "Çıkış ülkesi"};
+
 var lang="en";
 var $=function(s,r){return (r||document).querySelector(s)};
 function tr(k){return T[lang][k]||T.en[k]||k}
@@ -615,13 +698,14 @@ function apply(l){
   document.querySelectorAll("[data-i]").forEach(function(e){e.textContent=tr(e.getAttribute("data-i"))});
   document.querySelectorAll("[data-i-html]").forEach(function(e){e.innerHTML=tr(e.getAttribute("data-i-html"))});
   document.querySelectorAll("[data-ph]").forEach(function(e){e.placeholder=tr(e.getAttribute("data-ph"))});
+  document.querySelectorAll("[data-i-label]").forEach(function(e){var t=tr(e.getAttribute("data-i-label"));e.setAttribute("aria-label",t);e.title=t});
   document.querySelectorAll("[data-lang]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.lang===l)});
   document.title=l==="ar"?"شركة عبد العزيز كروب":"Abdul Aziz Group Company";
   try{localStorage.setItem("afc-lang",l)}catch(e){}
 }
 document.querySelectorAll("[data-lang]").forEach(function(b){b.addEventListener("click",function(){apply(b.dataset.lang)})});
 var saved=null;try{saved=localStorage.getItem("afc-lang")}catch(e){}
-apply(saved==="ar"?"ar":"en");
+apply(saved==="ar"||saved==="tr"?saved:"en");
 
 var nav=$("#nav"),menu=$("#menu");
 menu.addEventListener("click",function(){var o=nav.classList.toggle("open");menu.setAttribute("aria-expanded",o)});
@@ -701,7 +785,7 @@ $("#big").addEventListener("submit",function(e){
     cargo:cg.options[cg.selectedIndex].text,goods:$("#goods").value.trim(),hscode:$("#hscode").value.trim(),
     weight:String($("#weight").value||""),date:$("#date").value||"",name:$("#name").value.trim(),company:$("#company").value.trim(),
     phone:$("#phone").value.trim(),email:em,notes:$("#notes").value.trim(),files:fs.map(function(f){return f.name}).join(", "),
-    lang:document.documentElement.lang==="ar"?"ar":"en",summary:txt}).then(function(ok){if(ok)toast(tr("saved")+" "+ref)});
+    lang:lang,summary:txt}).then(function(ok){if(ok)toast(tr("saved")+" "+ref)});
   $("#done").classList.add("show");$("#done").scrollIntoView({behavior:"smooth",block:"nearest"});
 });
 function copyText(txt,fallbackEl){
@@ -808,17 +892,17 @@ buildSel();render();
 
 /* ---- Reviews: edit this list with real client reviews; set sample:false to hide the "Sample" tag ---- */
 var REVIEWS=[
- {sample:true,en:"Fast clearance at the border and the driver kept us updated the whole way. Our goods arrived on the promised day.",ar:"تخليص سريع على الحدود والسائق كان يبلّغنا بكل مرحلة. وصلت بضاعتنا في اليوم الموعود.",byEn:"Importer, Damascus",byAr:"مستورد، دمشق"},
- {sample:true,en:"Clear pricing with freight and customs listed separately. No surprises. The coordinator answered on WhatsApp within minutes.",ar:"أسعار واضحة مع فصل الشحن عن الجمارك دون مفاجآت. المنسّق يردّ على واتساب خلال دقائق.",byEn:"Food trader, Aleppo",byAr:"تاجر مواد غذائية، حلب"},
- {sample:true,en:"They handled our refrigerated load carefully and the temperature stayed right until delivery. Very professional team.",ar:"تعاملوا مع شحنتنا المبرّدة بعناية وبقيت الحرارة مضبوطة حتى التسليم. فريق محترف جدًا.",byEn:"Distributor, Latakia",byAr:"موزّع، اللاذقية"},
- {sample:true,en:"Our heavy machinery needed a planned route and permits. Abdul Aziz Group arranged everything and the delivery went smoothly.",ar:"آلاتنا الثقيلة احتاجت مسارًا مخططًا وتصاريح. رتّبت عبد العزيز كروب كل شيء وتمّ التسليم بسلاسة.",byEn:"Contractor, Homs",byAr:"مقاول، حمص"},
- {sample:true,en:"Transit cargo through Syria to Iraq was organised from start to finish. We will use them again.",ar:"شحنة الترانزيت عبر سوريا إلى العراق نُظّمت من البداية للنهاية. سنتعامل معهم مجددًا.",byEn:"Exporter, Türkiye",byAr:"مصدّر، تركيا"},
- {sample:true,en:"Easy to request a truck and the team speaks Arabic and English. Support is friendly and quick.",ar:"طلب الشاحنة سهل والفريق يتحدث العربية والإنجليزية. دعم لطيف وسريع.",byEn:"Trading company, Gaziantep",byAr:"شركة تجارية، غازي عنتاب"}
+ {sample:true,en:"Fast clearance at the border and the driver kept us updated the whole way. Our goods arrived on the promised day.",ar:"تخليص سريع على الحدود والسائق كان يبلّغنا بكل مرحلة. وصلت بضاعتنا في اليوم الموعود.",byEn:"Importer, Damascus",byAr:"مستورد، دمشق",tr:"Sınırda hızlı gümrükleme yapıldı ve sürücü tüm yol boyunca bizi bilgilendirdi. Mallarımız söz verilen günde ulaştı.",byTr:"İthalatçı, Şam"},
+ {sample:true,en:"Clear pricing with freight and customs listed separately. No surprises. The coordinator answered on WhatsApp within minutes.",ar:"أسعار واضحة مع فصل الشحن عن الجمارك دون مفاجآت. المنسّق يردّ على واتساب خلال دقائق.",byEn:"Food trader, Aleppo",byAr:"تاجر مواد غذائية، حلب",tr:"Net fiyatlandırma: taşıma ve gümrük ayrı ayrı gösterildi, sürpriz yok. Koordinatör WhatsApp'ta dakikalar içinde yanıt verdi.",byTr:"Gıda tüccarı, Halep"},
+ {sample:true,en:"They handled our refrigerated load carefully and the temperature stayed right until delivery. Very professional team.",ar:"تعاملوا مع شحنتنا المبرّدة بعناية وبقيت الحرارة مضبوطة حتى التسليم. فريق محترف جدًا.",byEn:"Distributor, Latakia",byAr:"موزّع، اللاذقية",tr:"Frigorifik yükümüzü özenle taşıdılar, sıcaklık teslimata kadar sabit kaldı. Çok profesyonel bir ekip.",byTr:"Distribütör, Lazkiye"},
+ {sample:true,en:"Our heavy machinery needed a planned route and permits. Abdul Aziz Group arranged everything and the delivery went smoothly.",ar:"آلاتنا الثقيلة احتاجت مسارًا مخططًا وتصاريح. رتّبت عبد العزيز كروب كل شيء وتمّ التسليم بسلاسة.",byEn:"Contractor, Homs",byAr:"مقاول، حمص",tr:"Ağır makinemiz için planlı bir güzergâh ve izinler gerekiyordu. Abdul Aziz Group her şeyi ayarladı, teslimat sorunsuz geçti.",byTr:"Müteahhit, Humus"},
+ {sample:true,en:"Transit cargo through Syria to Iraq was organised from start to finish. We will use them again.",ar:"شحنة الترانزيت عبر سوريا إلى العراق نُظّمت من البداية للنهاية. سنتعامل معهم مجددًا.",byEn:"Exporter, Türkiye",byAr:"مصدّر، تركيا",tr:"Suriye üzerinden Irak'a transit yükümüz baştan sona organize edildi. Tekrar çalışacağız.",byTr:"İhracatçı, Türkiye"},
+ {sample:true,en:"Easy to request a truck and the team speaks Arabic and English. Support is friendly and quick.",ar:"طلب الشاحنة سهل والفريق يتحدث العربية والإنجليزية. دعم لطيف وسريع.",byEn:"Trading company, Gaziantep",byAr:"شركة تجارية، غازي عنتاب",tr:"Kamyon talep etmek çok kolay ve ekip Arapça ile İngilizce konuşuyor. Destek samimi ve hızlı.",byTr:"Ticaret şirketi, Gaziantep"}
 ];
 function renderReviews(){
-  var ar=document.documentElement.lang==="ar",g=$("#rvgrid");if(!g)return;
+  var ar=lang==="ar",g=$("#rvgrid");if(!g)return;
   g.innerHTML=REVIEWS.map(function(r){
-    return '<figure class="rv" style="margin:0">'+(r.sample?'<span class="sm">'+tr("rv_s")+'</span>':'')+'<div class="st" aria-label="5/5">\u2605\u2605\u2605\u2605\u2605</div><p>'+(ar?r.ar:r.en)+'</p><figcaption class="by">'+(ar?r.byAr:r.byEn)+'</figcaption></figure>'}).join("");
+    return '<figure class="rv" style="margin:0">'+(r.sample?'<span class="sm">'+tr("rv_s")+'</span>':'')+'<div class="st" aria-label="5/5">\u2605\u2605\u2605\u2605\u2605</div><p>'+(ar?r.ar:lang==="tr"?(r.tr||r.en):r.en)+'</p><figcaption class="by">'+(ar?r.byAr:lang==="tr"?(r.byTr||r.byEn):r.byEn)+'</figcaption></figure>'}).join("");
   $("#rvwa").href="https://wa.me/"+WA_NUM;
   var n=document.querySelector(".rv-note");if(n)n.hidden=!REVIEWS.some(function(r){return r.sample});
 }
@@ -847,6 +931,76 @@ function saveRequest(d){
   }).catch(function(){return false});
 }
 fbReady();
+
+/* ---- Language dropdown ---- */
+(function(){
+  var box=$("#langsel"),btn=$("#langbtn"),menu=$("#langmenu"),cur=$("#langcur");
+  var codes={en:"EN",ar:"AR",tr:"TR"};
+  function close(){menu.hidden=true;btn.setAttribute("aria-expanded","false")}
+  function open(){menu.hidden=false;btn.setAttribute("aria-expanded","true");var s=menu.querySelector('[aria-selected="true"]');if(s)s.focus()}
+  btn.addEventListener("click",function(e){e.stopPropagation();menu.hidden?open():close()});
+  menu.addEventListener("click",function(e){if(e.target.closest("button"))close()});
+  document.addEventListener("click",function(e){if(!box.contains(e.target))close()});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!menu.hidden){close();btn.focus()}});
+  menu.addEventListener("keydown",function(e){
+    var items=[].slice.call(menu.querySelectorAll("button")),i=items.indexOf(document.activeElement);
+    if(e.key==="ArrowDown"){e.preventDefault();items[(i+1)%items.length].focus()}
+    if(e.key==="ArrowUp"){e.preventDefault();items[(i-1+items.length)%items.length].focus()}
+  });
+  function sync(){
+    cur.textContent=codes[lang]||"EN";btn.setAttribute("aria-label",tr("lang_l"));
+    menu.querySelectorAll("[data-lang]").forEach(function(b){b.setAttribute("aria-selected",b.dataset.lang===lang)});
+  }
+  var _a=apply;apply=function(l){_a(l);sync()};sync();
+})();
+
+/* ---- Date picker ---- */
+(function(){
+  var inp=$("#date"),btn=$("#dpbtn"),pop=$("#dppop"),back=$("#dpback"),txt=$("#dptxt"),grid=$("#dpgrid"),dow=$("#dpdow"),ttl=$("#dpm"),prev=$("#dpprev"),next=$("#dpnext");
+  var view=new Date();view.setDate(1);
+  function loc(){return lang==="ar"?"ar-SY-u-ca-gregory-nu-latn":lang==="tr"?"tr-TR-u-nu-latn":"en-GB-u-nu-latn"}
+  function fmt(d,o){try{return new Intl.DateTimeFormat(loc(),o).format(d)}catch(e){return new Intl.DateTimeFormat("en-GB",o).format(d)}}
+  function iso(d){return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2)}
+  function parse(v){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v||"");return m?new Date(+m[1],+m[2]-1,+m[3]):null}
+  function today(){var t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate())}
+  function first(){return lang==="ar"?6:1}
+  function showText(){
+    var d=parse(inp.value);
+    if(d){txt.textContent=fmt(d,{day:"numeric",month:"long",year:"numeric"});txt.classList.remove("ph")}
+    else{txt.textContent=tr("dp_ph");txt.classList.add("ph")}
+  }
+  function build(){
+    ttl.textContent=fmt(view,{month:"long",year:"numeric"});
+    var f=first(),h="",i;
+    var AR_D=["أحد","إثنين","ثلاثاء","أربعاء","خميس","جمعة","سبت"];for(i=0;i<7;i++)h+="<span>"+(lang==="ar"?AR_D[(f+i)%7]:fmt(new Date(2024,0,7+((f+i)%7)),{weekday:"short"}))+"</span>";
+    dow.innerHTML=h;
+    var y=view.getFullYear(),m=view.getMonth(),lead=(new Date(y,m,1).getDay()-f+7)%7,n=new Date(y,m+1,0).getDate(),sel=parse(inp.value),t=today(),g="";
+    for(i=0;i<lead;i++)g+="<i></i>";
+    for(var k=1;k<=n;k++){
+      var d=new Date(y,m,k),c="dp-d"+(sel&&+d===+sel?" sel":"")+(+d===+t?" now":"");
+      g+='<button type="button" class="'+c+'" data-v="'+iso(d)+'"'+(d<t?" disabled":"")+(sel&&+d===+sel?' aria-pressed="true"':"")+">"+k+"</button>";
+    }
+    grid.innerHTML=g;
+    var tm=new Date(t.getFullYear(),t.getMonth(),1);prev.disabled=view<=tm;
+  }
+  function open(){
+    var d=parse(inp.value)||today();view=new Date(d.getFullYear(),d.getMonth(),1);build();
+    pop.hidden=false;back.hidden=false;btn.setAttribute("aria-expanded","true");
+    var s=grid.querySelector(".sel,.now:not(:disabled)")||grid.querySelector("button:not(:disabled)");if(s)s.focus();
+  }
+  function close(){pop.hidden=true;back.hidden=true;btn.setAttribute("aria-expanded","false")}
+  function pick(v){inp.value=v;showText();close();btn.focus()}
+  btn.addEventListener("click",function(e){e.stopPropagation();pop.hidden?open():close()});
+  back.addEventListener("click",close);
+  document.addEventListener("click",function(e){if(!pop.hidden&&!pop.contains(e.target)&&e.target!==btn&&!btn.contains(e.target))close()});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!pop.hidden){close();btn.focus()}});
+  prev.addEventListener("click",function(){view=new Date(view.getFullYear(),view.getMonth()-1,1);build()});
+  next.addEventListener("click",function(){view=new Date(view.getFullYear(),view.getMonth()+1,1);build()});
+  grid.addEventListener("click",function(e){var b=e.target.closest(".dp-d");if(b&&!b.disabled)pick(b.dataset.v)});
+  $("#dpclear").addEventListener("click",function(){inp.value="";showText();close();btn.focus()});
+  $("#dptoday").addEventListener("click",function(){pick(iso(today()))});
+  var _b=apply;apply=function(l){_b(l);showText();if(!pop.hidden)build()};showText();
+})();
 </script>
 </body>
 </html>

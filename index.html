@@ -73,7 +73,7 @@ nav a.nl:hover{color:var(--fg);background:var(--surface)}
 .btn:hover{transform:translateY(-2px)}
 .btn.ghost{background:transparent;color:var(--fg);border:1.5px solid var(--line)}
 .menu{display:none;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:10px;width:42px;height:42px;cursor:pointer;flex:none}
-@media (max-width:1240px){
+@media (max-width:1440px){
   .menu{display:grid;place-items:center;margin-inline-start:auto}
   nav{position:absolute;inset-inline:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:8px 16px 16px;display:none;margin:0}
   nav.open{display:flex}
@@ -261,10 +261,20 @@ html[lang="ar"] .n-en,html:not([lang="ar"]) .n-ar{display:none}
 .brandcard .nm{font-size:1.7rem;white-space:normal}
 .brandcard small{font-size:.9rem;white-space:normal}
 html[lang="ar"] .brandcard small{font-size:1rem}
-@media (max-width:1240px){.logo small{display:none!important}.logo .nm{font-size:1.15rem}.lmark{width:52px}.brandcard .lmark{width:150px}}
+@media (max-width:1440px){.logo .nm{font-size:1.15rem}.lmark{width:52px}.brandcard .lmark{width:150px}}
 @media (max-width:520px){.logo{gap:10px}.lmark{width:44px}.logo .nm{font-size:.9rem;white-space:normal;max-width:130px;line-height:1.15;text-wrap:balance}html[lang="ar"] .logo .lt{flex:none;width:80px}html[lang="ar"] .logo .nm{font-size:.82rem;max-width:80px}html:not([lang="ar"]) .logo .lt{flex:none;width:112px}.brandcard .nm{font-size:1.35rem}.brandcard .lmark{width:120px}}
 
 @media (max-width:520px){.bar{gap:8px!important}.lang button{padding:5px 8px;font-size:.78rem}.theme{width:36px;height:36px}.menu{width:38px;height:38px}.logo{flex:none;gap:8px}.lmark{width:38px}.logo .nm{font-size:.82rem}html:not([lang="ar"]) .logo .lt{width:104px}html:not([lang="ar"]) .logo .nm{font-size:.76rem}html[lang="ar"] .logo .lt{width:78px}html[lang="ar"] .logo .nm{font-size:.8rem;max-width:78px}.brandcard .lmark{width:120px}}
+
+.logo small{display:none!important}
+.logo{flex:none;max-width:100%}
+.logo .nm{font-size:1.3rem;letter-spacing:.01em}
+.logo .lmark{width:56px}
+@media (max-width:1440px){.logo .nm{font-size:1.15rem}.logo .lmark{width:50px}}
+html:not([lang="ar"]) .logo .lt{width:auto}
+@media (max-width:520px){html:not([lang="ar"]) .logo .lt{width:104px}.logo .lmark{width:38px}.logo .nm{font-size:.76rem}}
+
+@media (max-width:1440px){.bar>.lang{order:1;margin-inline-start:auto}.bar>.theme{order:2}.bar>.menu{order:3;margin-inline-start:0}}
 html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}
 </style>
 
